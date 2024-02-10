@@ -1,0 +1,32 @@
+#
+# http://linux.die.net/man/5/sshd_config
+
+Port 22
+Protocol 2
+
+SyslogFacility AUTHPRIV
+LogLevel INFO
+
+LoginGraceTime 1m
+
+# No root login
+PermitRootLogin no
+
+# Only allow pubkeys:
+ChallengeResponseAuthentication no
+PasswordAuthentication no
+PubkeyAuthentication yes
+KerberosAuthentication no
+GSSAPIAuthentication no
+UsePAM no
+
+# Disable unnecessary features:
+X11Forwarding no
+PrintMotd no
+PrintLastLog no
+UseDNS no
+
+# Only allow upload@
+AllowUsers upload
+
+AuthorizedKeysFile /config/authorized_keys
